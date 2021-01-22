@@ -45,16 +45,15 @@
                 {{item.texto}}
                 <span class="pull-right">
                     <button type="button" 
-                    class="btn btn-danger btn-xs glyphicon glyphicon-erase"
-                    @click="borrarTarea(index)"
-                    ></button>
-                </span>
-                <span class="pull-right">
-                    <button type="button" 
                     class="btn btn-success btn-xs glyphicon glyphicon-ok"
                     @click="item.terminada = !item.terminada"
                     ></button>
-                </span>
+
+                    <button type="button" 
+                    class="btn btn-danger btn-xs glyphicon glyphicon-erase"
+                    @click="borrarTarea(index)"
+                    ></button>                    
+                </span>             
                 
             </li>                
         </ul> 
