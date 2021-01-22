@@ -43,7 +43,35 @@ methods: {
         this.nuevaTarea = ''
     }
 }
-})
+});
+
+Vue.component('lista-tarea',{
+    template: `<ul class="list-group">
+                    <li v-for="(item, index) in tareas" class="list-group-item" v-bind:class="{terminada:item.terminada}">
+                        {{item.texto}}
+                        <span class="pull-right">
+                            <button type="button" 
+                            class="btn btn-success btn-xs glyphicon glyphicon-ok"
+                            @click="item.terminada = !item.terminada"
+                            ></button>
+
+                            <button type="button" 
+                            class="btn btn-danger btn-xs glyphicon glyphicon-erase"
+                            @click="borrarTarea(index)"
+                            ></button>                    
+                        </span>             
+                        
+                    </li>                
+                </ul>`,
+data: function(){
+    return data;
+},
+methods: {
+    borrarTarea: function(index){
+        this.tareas.splice(index,1)
+    }
+}
+});
 
 Vue.component('titulo', {
     template:'<h2>{{titulo}}</h2>',
@@ -54,20 +82,5 @@ Vue.component('titulo', {
 
 const app = new Vue({
     el: '#app',
-    data: data,
-    methods: {
-/*         agregartarea : function(){
-            const tarea = this.nuevaTarea.trim()
-            if(tarea){
-                this.tareas.push({
-                    texto: tarea,
-                    terminada: false
-                })
-            }            
-            this.nuevaTarea = ''
-        }, */
-        borrarTarea: function(index){
-            this.tareas.splice(index,1)
-        }
-    }
+    data: data
 })
