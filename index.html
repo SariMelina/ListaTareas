@@ -30,17 +30,8 @@
 
 <body class="container">
     <div id="app" class="jumbotron">
-        <h2>{{titulo}}</h2>
-        <div class="input-group">
-            <input type="text" placeholder="Escribe una nueva tarea..." 
-            v-model="nuevaTarea"
-            class="form-control"
-            @keyup.enter="agregartarea()">
-            <span class="input-group-btn">
-                <button type="button" @click="agregartarea()"
-                class="btn btn-primary">Agregar</button>
-            </span>
-        </div>
+        <titulo></titulo>
+        <nueva-tarea></nueva-tarea>
         <ul class="list-group">
             <li v-for="(item, index) in tareas" class="list-group-item" v-bind:class="{terminada:item.terminada}">
                 {{item.texto}}
