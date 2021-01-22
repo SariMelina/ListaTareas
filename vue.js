@@ -29,6 +29,9 @@ const app = new Vue({
                 })
             }            
             this.nuevaTarea = ''
+        },
+        borrarTarea: function(index){
+            this.tareas.splice(index,1)
         }
     }
 })

@@ -41,8 +41,14 @@
             </span>
         </div>
         <ul class="list-group">
-            <li v-for="item in tareas" class="list-group-item" v-bind:class="{terminada:item.terminada}">
+            <li v-for="(item, index) in tareas" class="list-group-item" v-bind:class="{terminada:item.terminada}">
                 {{item.texto}}
+                <span class="pull-right">
+                    <button type="button" 
+                    class="btn btn-danger btn-xs glyphicon glyphicon-erase"
+                    @click="borrarTarea(index)"
+                    ></button>
+                </span>
                 <span class="pull-right">
                     <button type="button" 
                     class="btn btn-success btn-xs glyphicon glyphicon-ok"
